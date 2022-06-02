@@ -1,0 +1,40 @@
+.about{
+  width: 30%;
+  background-color: #4D4D4D93;
+  margin:10px;
+  border-radius: 10px;
+
+  h2{
+
+    color:silver;
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+
+.about_info {
+
+  margin: 0 auto;
+  width: 80%;
+
+
+  div {
+    background-color: #464b4d;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 70px;
+  }
+
+  h3 {
+    text-align: center;
+    color: silver;
+  }
+
+  p {
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+
+  }
+}

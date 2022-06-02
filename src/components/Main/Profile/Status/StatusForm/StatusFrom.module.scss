@@ -1,0 +1,61 @@
+.status_form {
+  height: 50px;
+  border-radius: 5px;
+  background-color: #4D4D4D93;
+
+  //.status_form_preloader{
+  //  position: relative;
+  //  left: 1270px;
+  //  bottom: 70px;
+  //}
+
+  .status_form_input {
+      display: flex;
+      justify-content: center;
+
+
+    button{
+      width: 40px;
+      height: 40px;
+      margin: 5px 20px 5px 5px;
+
+      border-radius: 50%;
+      border: none;
+      background-color: #32434f;
+      color: silver;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover{
+       background-color: #475c6b;
+      }
+    }
+
+
+
+    input {
+      margin-top: 7px;
+      margin-right: 50px;
+      width: 1200px;
+      height: 35px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      display: flex;
+      font-size: 20px;
+      background-color: rgba(94, 94, 94, 0.58);
+      padding: 5px;
+      transition: 0.3s;
+      color: white;
+      &:hover{
+        background-color: rgba(134, 134, 134, 0.58);
+
+      }
+
+
+
+
+    }
+
+  }
+}

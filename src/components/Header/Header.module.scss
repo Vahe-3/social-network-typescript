@@ -1,0 +1,18 @@
+.header {
+  background-color: #3c3f41;
+  height: 60px;
+  display: flex;
+  border-bottom: #969696 solid 2px;
+
+  img{
+    width: 50px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  h2{
+    color: azure;
+    margin: 15px;
+  }
+}
