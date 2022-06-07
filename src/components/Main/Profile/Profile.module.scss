@@ -1,4 +1,30 @@
 .profile{
+
   display: flex;
   margin-top: 50px;
+
+  animation: show 300ms;
+
 }
+
+.profile_status{
+
+  animation: show 1000ms  ;
+}
+
+@keyframes show {
+  from {
+
+    opacity: 0;
+
+  }
+
+  to {
+
+    opacity: 1;
+  }
+}
+
+
+
+

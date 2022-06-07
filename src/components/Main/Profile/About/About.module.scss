@@ -10,6 +10,8 @@
     text-align: center;
     margin-top: 5px;
   }
+
+
 }
 
 .about_info {
@@ -18,12 +20,24 @@
   width: 80%;
 
 
+
+  .about_inputs{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+
+
+  }
+
   div {
     background-color: #464b4d;
     margin-top: 10px;
     border-radius: 5px;
     padding: 10px;
-    min-height: 70px;
+    height: 75px;
   }
 
   h3 {

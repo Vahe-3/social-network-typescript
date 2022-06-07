@@ -2,8 +2,8 @@
 
     width: 30%;
     background-color: #4D4D4D93;
-  border-radius: 10px;
-  margin: 10px;
+    border-radius: 10px;
+    margin: 10px;
 
   h2{
 
@@ -18,11 +18,17 @@
     flex-wrap: wrap;
     justify-content: center;
 
+    input {
+      width: 80% ;
+      margin-left: 15px;
+    }
+
 
     div{
       min-width: 150px;
       height: 50px;
       margin: 8px;
+      width: 160px;
 
       background-color: #464b4d;
       border-radius: 5px;

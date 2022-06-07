@@ -1,7 +1,17 @@
 import React from "react";
-import styles from "./Contacts.module.scss"
+import styles from "./Contacts.module.scss";
+import {ProfileContactsType} from "../../../../store/types/profileTypes";
 
-const Contacts:React.FC = () => {
+
+interface ContactsTypes {
+    contacts: ProfileContactsType;
+    editMode: boolean;
+    register: any;
+}
+
+const Contacts: React.FC<ContactsTypes> = ({contacts, editMode, register}) => {
+
+    let contactsInArray = Object.keys(contacts);
 
     return (
         <div className={styles.contacts}>
@@ -9,52 +19,22 @@ const Contacts:React.FC = () => {
 
             <div className={styles.contacts_item}>
 
-
-                <div>
-                    <h3>Facebook</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
+                {
+                    contactsInArray.map(key => {
 
 
-                <div>
-                    <h3>Website</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
+                        return <div  key={key}>
+                            <h3>{key}</h3>
+                            {
+                                editMode ? <input type="text" {...register("contacts." + key)} /> :
+                                    //@ts-ignore
+                                    <a href={contacts[key] ? contacts[key] : undefined}>{contacts[key] ? contacts[key] : "-"}</a>
 
+                            }
+                        </div>
+                    })
+                }
 
-                <div>
-                    <h3>VK</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
-
-
-                <div>
-                    <h3>Twitter</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
-
-                <div>
-                    <h3>Instagram</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
-
-
-                <div>
-                    <h3>YouTube</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
-
-
-                <div>
-                    <h3>GitHub</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
-
-
-                <div>
-                    <h3>MainLink</h3>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </div>
             </div>
 
 

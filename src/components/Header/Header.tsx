@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./Header.module.scss";
 import logo from "../../icons/logo.png";
+import {NavLink} from "react-router-dom";
 
 
 const Header : React.FC  = () => {
@@ -8,7 +9,7 @@ const Header : React.FC  = () => {
         <div className={styles.header}>
 
                 <div>
-                    <img src={logo}/>
+                   <NavLink to={"/"} ><img src={logo}/></NavLink>
                 </div>
                 <div>
                     <h2>Life Story</h2>
