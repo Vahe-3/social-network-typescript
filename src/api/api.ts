@@ -48,6 +48,11 @@ export const usersApi: UsersApiTypes = {
 
         return instance.put("profile",profile)
     },
+
+    getUsers(currentPage) {
+
+        return instance.get(`users?page=${currentPage}&count=10`)
+    },
 };
 
 export const statusApi: StatusApiTypes = {

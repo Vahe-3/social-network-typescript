@@ -23,9 +23,10 @@ const Profile = () => {
     const dispatch = useAppDispatch();
     const {userProfile, auth} = useAppSelector(state => state);
     const [editMode, setEditMode] = useState<boolean>(false);
-    const {register, handleSubmit, control} = useForm<ProfileFormTypes>();
+
 
     const {profile, status, isLoading, error} = userProfile;
+    const {register, handleSubmit, setValue} = useForm<ProfileFormTypes>();
     const location = useParams();
     let myId = auth.data.id;
 
@@ -46,6 +47,8 @@ const Profile = () => {
             });
 
         }
+
+
     }, [id]);
 
 
@@ -106,6 +109,7 @@ const Profile = () => {
                                  userId={profile.userId}
                                  myId={auth.data.id}
 
+
                     />
 
                     <About aboutMe={profile.aboutMe}
@@ -121,8 +125,11 @@ const Profile = () => {
             </form>
             <div className={styles.profile_status}>
 
-                {profile.userId === myId ? <StatusForm setStatus={setStatus}/> : null}
+                {
+                    profile.userId === myId ? <StatusForm setStatus={setStatus}/> : null
+                }
                 <StatusItem status={status}/>
+
 
 
             </div>

@@ -1,0 +1,50 @@
+.user {
+  background-color: #3f3c3a;
+  width: 220px;
+  height: 300px;
+  margin: 50px 20px 20px;
+  border-radius: 5px;
+
+  a{
+    text-decoration: none;
+  }
+
+  .user_photo {
+
+    img {
+      width: 150px;
+      margin-left: 35px;
+      margin-top: 20px;
+      border-radius: 50%;
+
+    }
+  }
+
+  .user_name {
+
+    margin-bottom: 10px;
+
+    h2 {
+      text-align: center;
+      margin-top: 5px;
+      color: silver;
+    }
+  }
+
+  .user_status {
+    width: 90%;
+    height: 50px;
+    margin: 0  auto ;
+    background-color: #464b4d;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h4{
+      color: #ffffff;
+    }
+  }
+
+}
+

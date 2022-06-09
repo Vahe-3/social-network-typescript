@@ -10,6 +10,7 @@ const Header : React.FC  = () => {
 
                 <div>
                    <NavLink to={"/"} ><img src={logo}/></NavLink>
+                    <NavLink to={"/users"} > Users </NavLink>
                 </div>
                 <div>
                     <h2>Life Story</h2>

@@ -15,6 +15,7 @@ interface ProfileItemsTypes {
     handleEditMode: () => void;
     register: any;
 
+
 }
 
 

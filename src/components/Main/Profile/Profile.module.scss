@@ -3,28 +3,20 @@
   display: flex;
   margin-top: 50px;
 
-  animation: show 300ms;
+  animation: show  0.5s forwards;
 
 }
 
 .profile_status{
-
-  animation: show 1000ms  ;
+  animation: show 0.5s forwards ;
 }
+
+
 
 @keyframes show {
-  from {
+  0% {opacity: 0;}
 
-    opacity: 0;
-
-  }
-
-  to {
-
-    opacity: 1;
-  }
+  100% {opacity: 1;}
 }
-
-
 
 
