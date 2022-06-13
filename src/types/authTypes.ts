@@ -15,7 +15,6 @@ export interface AuthStateType {
 }
 
 
-export interface AuthApiTypes {
-    me: () => Promise<{ data: AuthStateType }>;
-}
+
+
 

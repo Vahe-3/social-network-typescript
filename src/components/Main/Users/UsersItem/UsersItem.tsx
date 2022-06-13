@@ -1,17 +1,22 @@
 import React, {useEffect} from 'react';
 import Preloader from "../../../Preloader/Preloader";
-import {UsersType} from "../../../../store/slices/usersSlice";
 import User from "./User/User";
 import styles from "./UsersItem.module.scss"
+import {UsersType} from "../../../../types/usersTypes";
+
 
 interface UsersItemProps {
     isLoading: boolean;
     users: UsersType[] | null;
     defaultPage: number;
+    followingInProgress: number[];
+    followUser: (userId: number, followed: boolean) => void;
 
 }
 
-const UsersItem: React.FC<UsersItemProps> = ({users,isLoading,defaultPage}) => {
+const UsersItem: React.FC<UsersItemProps> = ({users,isLoading,followUser,followingInProgress}) => {
+
+
 
     if(isLoading){
         return <Preloader />
@@ -20,7 +25,7 @@ const UsersItem: React.FC<UsersItemProps> = ({users,isLoading,defaultPage}) => {
     return (
         <div className={styles.users_item}>
             {
-                users ? users.map(u =><User user={u} />) : ""
+                users ? users.map(u =><User followingInProgress={followingInProgress}  followUser={followUser} user={u} />) : ""
             }
 
         </div>

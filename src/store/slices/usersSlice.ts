@@ -1,25 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getUsersThunk} from "../thunks/usersThunks";
+import {followUserThunk, getUsersThunk, unfollowUserThunk} from "../thunks/usersThunks";
+import {UsersStateTypes} from "../../types/usersTypes";
+import users from "../../components/Main/Users/Users";
 
-export interface UsersType {
-    name: string | null;
-    id: number | null;
-    photos: {
-        small: null | string;
-        large: null | string;
-    };
-    status: null | string;
-    followed: boolean;
-
-}
-
-interface UsersStateTypes {
-    totalUsersCount: number | null;
-    error: null | string;
-    users: UsersType[] | null;
-    isLoading: boolean;
-    defaultPage: number;
-}
 
 const initialState: UsersStateTypes = {
     totalUsersCount: null,
@@ -27,6 +10,7 @@ const initialState: UsersStateTypes = {
     users: null,
     error: null,
     defaultPage: 1,
+    followingInProgress: [],
 
 
 }
@@ -36,7 +20,11 @@ const usersSlice = createSlice({
     name: "users",
     initialState,
 
-    reducers: {},
+    reducers: {
+        addFollowInProgressUsers: (state, action:  PayloadAction<number>) => {
+            state.followingInProgress.push(action.payload);
+        }
+    },
 
     extraReducers: (builder) => {
         builder
@@ -49,7 +37,46 @@ const usersSlice = createSlice({
                 state.totalUsersCount = action.payload.totalCount;
                 state.isLoading = false;
             })
+
+
+            .addCase(followUserThunk.pending, (state,) => {
+
+
+            })
+
+            .addCase(followUserThunk.fulfilled, (state, action) => {
+
+                state.followingInProgress = state.followingInProgress.filter(id => id !== action.payload);
+                if (state.users) {
+                    const user = state.users.find(user => user.id === action.payload);
+
+                    if (user) {
+
+                        user.followed = true;
+                    }
+
+                }
+            })
+
+            .addCase(unfollowUserThunk.pending, (state) => {
+
+
+            })
+
+            .addCase(unfollowUserThunk.fulfilled, (state, action) => {
+
+                state.followingInProgress = state.followingInProgress.filter(id => id !== action.payload);
+                if (state.users) {
+                    const user = state.users.find(user => user.id === action.payload);
+                    if (user) {
+                        user.followed = false
+                    }
+
+                }
+            })
+
     }
 });
 
 export const usersReducer = usersSlice.reducer;
+export const {addFollowInProgressUsers} = usersSlice.actions;

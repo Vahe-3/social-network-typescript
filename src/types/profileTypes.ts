@@ -1,4 +1,4 @@
-import {UsersType} from "../slices/usersSlice";
+
 
 export interface ProfileContactsType {
     facebook: string | null;
@@ -52,25 +52,3 @@ export  interface ProfileFormTypes {
 
 
 }
-
-export interface RefreshPhotoTypes {
-   data: {  photos: { large: string, small: string}};
-   resultCode: number;
-}
-
-export interface  GetUsersType {
-items: UsersType[],totalCount: number, error: null | string
-}
-
-export interface UsersApiTypes {
-    getUsersProfile: (num: number) => Promise<{ data: ProfileTypes }>
-    savePhoto: (file: any) => Promise<{ data: RefreshPhotoTypes }>
-    saveProfile: (data: ProfileFormTypes) => Promise<{data:{ resultCode: number, messages: [string] }} >
-    getUsers: (data: number) => Promise<{data: GetUsersType}>
-}
-
-export interface StatusApiTypes {
-    getStatus: (num: number) => Promise<{data:string}>;
-    updateStatus: (str: string) => Promise<{ data: { resultCode: number, } }>
-}
-

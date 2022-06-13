@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ProfileFormTypes, ProfileTypes, RefreshPhotoTypes} from "../types/profileTypes";
+import {ProfileFormTypes, ProfileTypes} from "../../types/profileTypes";
 import {statusApi, usersApi} from "../../api/api";
 import {addPost} from "../slices/profileSlice";
 

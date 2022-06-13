@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {AuthStateType} from "../types/authTypes";
-import {authThunk} from "../thunks/authThunks";
+import {AuthStateType} from "../../types/authTypes";
+import {authThunk, logInThunk, logoutThunk} from "../thunks/authThunks";
 
 
 const initialState: AuthStateType = {
@@ -22,7 +22,7 @@ const initialState: AuthStateType = {
 
 const authSlice = createSlice({
 
-    name: "authSlice",
+    name: "auth",
 
     initialState,
 
@@ -37,8 +37,32 @@ const authSlice = createSlice({
             })
             .addCase(authThunk.fulfilled, (state, action) => {
                 state.data = action.payload.data;
+                state.isAuth = true;
                 state.isLoading = false;
             })
+            .addCase(authThunk.rejected, (state, action) => {
+
+                state.isLoading = false;
+
+            })
+
+            .addCase(logInThunk.rejected, (state, action) => {
+
+                state.error = action.payload ? action.payload : "other error";
+
+            })
+
+
+
+            .addCase(logoutThunk.pending, (state, action) => {
+                state.isLoading = true;
+            })
+            .addCase(logoutThunk.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isAuth = false;
+            })
+
+
     }
 
 });

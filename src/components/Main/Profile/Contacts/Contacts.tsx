@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Contacts.module.scss";
-import {ProfileContactsType} from "../../../../store/types/profileTypes";
+import {ProfileContactsType} from "../../../../types/profileTypes";
 
 
 interface ContactsTypes {

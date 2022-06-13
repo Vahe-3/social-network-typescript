@@ -1,6 +1,6 @@
 import axios from "axios";
-import {AuthApiTypes} from "../store/types/authTypes";
-import {StatusApiTypes, UsersApiTypes} from "../store/types/profileTypes";
+import {AuthApiTypes, NewsApiTypes, StatusApiTypes, UsersApiTypes} from "./apiTypes";
+
 
 
 const instance = axios.create({
@@ -19,6 +19,19 @@ const instance = axios.create({
 export const authApi: AuthApiTypes = {
     me() {
         return instance.get("auth/me");
+    },
+
+    logout() {
+        return instance.delete("auth/login");
+    },
+    logIn(email,password,rememberMe,captcha=false){
+        return instance.post("auth/login",{
+            email:email,
+            password:password,
+            rememberMe:rememberMe,
+            captcha:captcha,
+
+        })
     }
 }
 
@@ -26,15 +39,13 @@ export const authApi: AuthApiTypes = {
 export const usersApi: UsersApiTypes = {
 
     getUsersProfile(userId) {
-
         return instance.get("profile/" + userId);
-
     },
 
-    savePhoto(photoFile){
+    savePhoto(photoFile) {
         const formData = new FormData();
-        formData.append("image",photoFile)
-        return instance.put("profile/photo",formData,{
+        formData.append("image", photoFile)
+        return instance.put("profile/photo", formData, {
 
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -43,27 +54,43 @@ export const usersApi: UsersApiTypes = {
         })
     },
 
-    saveProfile(profile){
-
-
-        return instance.put("profile",profile)
+    saveProfile(profile) {
+        return instance.put("profile", profile)
     },
 
     getUsers(currentPage) {
-
         return instance.get(`users?page=${currentPage}&count=10`)
+    },
+
+    follow(userId) {
+        return instance.post(`follow/${userId}`)
+    },
+    unfollow(userId) {
+        return instance.delete(`follow/${userId}`)
     },
 };
 
+
+
 export const statusApi: StatusApiTypes = {
-    getStatus(userId){
+    getStatus(userId) {
 
         return instance.get("profile/status/" + userId)
     },
 
-    updateStatus(status){
-        return instance.put("profile/status",{status:status})
+    updateStatus(status) {
+        return instance.put("profile/status", {status: status})
     },
+};
+
+
+export const newsApi: NewsApiTypes = {
+
+    getNews() {
+        return axios.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0fdc719215b146bf833044c0a0f9a859");
+    }
+
 }
+
 
 

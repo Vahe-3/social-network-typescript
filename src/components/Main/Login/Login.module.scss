@@ -1,0 +1,139 @@
+.login {
+  width: 500px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  background-color: #3f3c3a;
+  border-radius: 10px;
+
+  form {
+    width: 90%;
+    margin-left: 40px;
+  }
+
+
+  h1 {
+
+    color: silver;
+    margin: 20px 20px 30px 0px;
+    text-align: center;
+
+  }
+
+  div {
+
+    margin: 20px 20px 40px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+
+  }
+
+  input {
+
+    border: none;
+    background-color: #3f3c3a;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:focus {
+
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #3f3c3a inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+  .loginInput,
+  .passwordInput {
+    input {
+      width: 90%;
+    }
+
+    height: 40px;
+    border-bottom: 1px solid #969696;
+
+  }
+
+  .submitButton button {
+    border: none;
+    border-radius: 5px;
+    color: silver;
+    outline: none;
+    width: 80px;
+    height: 30px;
+    margin-top: 30px;
+    background-color: #32434f;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #475c6b;
+
+    }
+
+
+  }
+
+  .errorDiv {
+    color: red;
+    flex-direction: column;
+    position: absolute;
+    right: 180px;
+
+    p {
+      color: red;
+      text-align: center;
+      margin: 5px;
+
+
+    }
+  }
+
+  .rememberMeInput{
+    h3 {
+      color: silver;
+
+
+    }
+
+    input {
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+  }
+
+
+}
+
+
+.errorImage {
+  width: 20px;
+  margin-left: 140px;
+  position: absolute;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

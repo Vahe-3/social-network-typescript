@@ -15,7 +15,7 @@ import Preloader from "../../Preloader/Preloader";
 import {useParams} from "react-router-dom";
 import StatusForm from "./StatusForm/StatusForm";
 import {useForm} from "react-hook-form";
-import {ProfileFormTypes} from "../../../store/types/profileTypes";
+import {ProfileFormTypes} from "../../../types/profileTypes";
 
 //The Profile component turned out to be large, one could call it a container
 const Profile = () => {

@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {ProfileStateTypes} from "../types/profileTypes";
+import {ProfileStateTypes} from "../../types/profileTypes";
 import {getStatusThunk, getUserProfileThunk, refreshProfileData, setProfilePhotoThunk} from "../thunks/profileThunks";
 
 
@@ -38,7 +38,7 @@ const initialState: ProfileStateTypes = {
 
 
 const profileSlice = createSlice({
-        name: "profileSlice",
+        name: "profile",
         initialState,
         reducers: {
             addPost(state, action:PayloadAction<string>){
