@@ -2,12 +2,15 @@ import React from 'react';
 import style from './Login.module.scss';
 import {useForm} from 'react-hook-form';
 import errorImage from './../../../icons/error.jpg'
-
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
-
 import {logInThunk} from "../../../store/thunks/authThunks";
 
+interface LoginFormTypes {
+    email: string;
+    password: string;
+    rememberMe: boolean;
 
+}
 
 function Login() {
 
@@ -17,12 +20,12 @@ function Login() {
     const {register,
         handleSubmit,
         formState:{errors}
-    } = useForm({mode:"onTouched"});
+    } = useForm<LoginFormTypes>({mode:"onTouched"});
 
     const onSubmit = (data: any) => {
 
         dispatch(logInThunk(data));
-    }
+    };
 
 
     return (
@@ -43,7 +46,7 @@ function Login() {
                 </div>
 
                 <div className={style.errorDiv}>
-                    {(errors.login || errors.password) ?  <p>Fields required</p> : ""}
+                    {(errors.email || errors.password) ?  <p>Fields required</p> : ""}
                     <p>
                         {error && error}
                     </p>
@@ -66,6 +69,6 @@ function Login() {
 
         </div>
     )
-}
+};
 
 export default Login

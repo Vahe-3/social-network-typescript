@@ -8,14 +8,13 @@ export const getNewsThunk = createAsyncThunk<NewsType[], undefined, {rejectValue
 
     async function (_, {rejectWithValue}) {
 
-        const response = await newsApi.getNews()
+        const response = await newsApi.getNews();
 
         if(response.data.status === "ok"){
-                return response.data.articles
+                return response.data.articles;
         }
 
-        return  rejectWithValue("Server Erros")
-
+        return  rejectWithValue(response.data.message)
 
     }
 )

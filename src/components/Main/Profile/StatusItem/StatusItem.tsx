@@ -2,13 +2,12 @@ import React, {useEffect} from 'react';
 import styles from "./StatusItem.module.scss"
 
 
-
 interface StatusPropsTypes {
     status: string | null;
 
 }
 
-const StatusItem:React.FC<StatusPropsTypes> = ({status}) => {
+const StatusItem: React.FC<StatusPropsTypes> = ({status}) => {
 
     return (
         <div className={styles.status_item}>

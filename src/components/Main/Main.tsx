@@ -11,23 +11,23 @@ import Login from "./Login/Login";
 
 const Main: React.FC = () => {
 
-   const {isAuth} = useAppSelector(state => state.auth);
+    const {isAuth} = useAppSelector(state => state.auth);
 
-   if(!isAuth){
-       return <div className={styles.main_login}>
-           <Login />
-       </div>
-   }
+    if (!isAuth) {
+        return <div className={styles.main_login}>
+            <Login/>
+        </div>
+    }
 
     return (
         <div className={styles.main}>
             <Routes>
-                <Route path="/" element={<Profile />} />
-                <Route path="/profile/:id" element={<Profile />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/messages" element={<Messages />} />
-                <Route path="/users" element={<Users />} />
-                <Route path="/news" element={<News />} />
+                <Route path="/" element={<Profile/>}/>
+                <Route path="/profile/:id" element={<Profile/>}/>
+                <Route path="/profile" element={<Profile/>}/>
+                <Route path="/messages" element={<Messages/>}/>
+                <Route path="/users" element={<Users/>}/>
+                <Route path="/news" element={<News/>}/>
             </Routes>
         </div>
     );

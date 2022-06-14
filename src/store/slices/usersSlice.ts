@@ -37,13 +37,15 @@ const usersSlice = createSlice({
                 state.totalUsersCount = action.payload.totalCount;
                 state.isLoading = false;
             })
+            .addCase(getUsersThunk.rejected, (state, action) => {
+                state.error = action.payload ? action.payload : "Unknown error";
+                state.isLoading = false;
+            })
 
 
             .addCase(followUserThunk.pending, (state,) => {
-
-
+                state.error = null;
             })
-
             .addCase(followUserThunk.fulfilled, (state, action) => {
 
                 state.followingInProgress = state.followingInProgress.filter(id => id !== action.payload);
@@ -57,12 +59,15 @@ const usersSlice = createSlice({
 
                 }
             })
-
-            .addCase(unfollowUserThunk.pending, (state) => {
-
+            .addCase(followUserThunk.rejected, (state,action,) => {
+                state.error = action.payload ? action.payload : "Unknown error";
+                state.isLoading = false;
 
             })
 
+            .addCase(unfollowUserThunk.pending, (state) => {
+                state.error = null;
+            })
             .addCase(unfollowUserThunk.fulfilled, (state, action) => {
 
                 state.followingInProgress = state.followingInProgress.filter(id => id !== action.payload);
@@ -73,6 +78,11 @@ const usersSlice = createSlice({
                     }
 
                 }
+            })
+            .addCase(unfollowUserThunk.rejected, (state,action,) => {
+                state.error = action.payload ? action.payload : "Unknown error";
+                state.isLoading = false;
+
             })
 
     }

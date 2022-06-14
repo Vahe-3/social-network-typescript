@@ -2,7 +2,6 @@ import axios from "axios";
 import {AuthApiTypes, NewsApiTypes, StatusApiTypes, UsersApiTypes} from "./apiTypes";
 
 
-
 const instance = axios.create({
 
     withCredentials: true,
@@ -24,16 +23,16 @@ export const authApi: AuthApiTypes = {
     logout() {
         return instance.delete("auth/login");
     },
-    logIn(email,password,rememberMe,captcha=false){
-        return instance.post("auth/login",{
-            email:email,
-            password:password,
-            rememberMe:rememberMe,
-            captcha:captcha,
+    logIn(email, password, rememberMe, captcha = false) {
+        return instance.post("auth/login", {
+            email: email,
+            password: password,
+            rememberMe: rememberMe,
+            captcha: captcha,
 
         })
     }
-}
+};
 
 
 export const usersApi: UsersApiTypes = {
@@ -71,7 +70,6 @@ export const usersApi: UsersApiTypes = {
 };
 
 
-
 export const statusApi: StatusApiTypes = {
     getStatus(userId) {
 
@@ -87,10 +85,10 @@ export const statusApi: StatusApiTypes = {
 export const newsApi: NewsApiTypes = {
 
     getNews() {
-        return axios.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0fdc719215b146bf833044c0a0f9a859");
+        return axios.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8f21a2f374b14c6a902e37959e80b578");
     }
 
-}
+};
 
 
 

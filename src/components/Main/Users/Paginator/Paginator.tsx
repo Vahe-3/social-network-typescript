@@ -9,8 +9,7 @@ interface PaginatorTypes {
 
 }
 
-
-const Paginator: React.FC<PaginatorTypes> = ({totalUsersCount = 0,getUsers,defaultPage }) => {
+const Paginator: React.FC<PaginatorTypes> = ({totalUsersCount = 0, getUsers, defaultPage}) => {
 
     const countOfPages = Math.ceil(totalUsersCount / 10);
 
@@ -24,7 +23,7 @@ const Paginator: React.FC<PaginatorTypes> = ({totalUsersCount = 0,getUsers,defau
     const [portionNumber, setPortionNumber] = useState(1);
     const [page, setPage] = useState<number>(defaultPage);
 
-    const leftPortionPageNumber = (portionNumber - 1) * 10 ;
+    const leftPortionPageNumber = (portionNumber - 1) * 10;
     const rightPortionPageNumber = portionNumber * 10;
 
     const pagesPortion = numberOfPagesInArray.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber);
@@ -39,11 +38,12 @@ const Paginator: React.FC<PaginatorTypes> = ({totalUsersCount = 0,getUsers,defau
 
             {
 
-                pagesPortion.map(number => <h3 className={page === number ? "active_page" : ""} onClick={() => {
-                    setPage(number)
-                    getUsers(number)
+                pagesPortion.map(number => <h3 key={number} className={page === number ? "active_page" : ""}
+                                               onClick={() => {
+                                                   setPage(number)
+                                                   getUsers(number)
 
-                }}>{number}</h3>)
+                                               }}>{number}</h3>)
             }
 
             <button className={pagesPortionCount <= portionNumber ? "del" : ""}

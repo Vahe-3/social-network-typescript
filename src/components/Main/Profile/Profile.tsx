@@ -26,7 +26,7 @@ const Profile = () => {
 
 
     const {profile, status, isLoading, error} = userProfile;
-    const {register, handleSubmit, setValue} = useForm<ProfileFormTypes>();
+    const {register, handleSubmit} = useForm<ProfileFormTypes>();
     const location = useParams();
     let myId = auth.data.id;
 
@@ -61,14 +61,15 @@ const Profile = () => {
     const setStatus = (text: string) => {
 
         if (text) {
-            dispatch(refreshStatusThunk(text))
+            dispatch(refreshStatusThunk(text));
+
         }
 
     };
 
     const handleEditMode = () => {
         setEditMode(!editMode)
-    }
+    };
 
     const onSubmit = (data: ProfileFormTypes) => {
         dispatch(refreshProfileData(data)).then(resp => {
@@ -83,7 +84,7 @@ const Profile = () => {
             setEditMode(!editMode);
         }
 
-    }
+    };
 
 
     if (isLoading) {
@@ -129,7 +130,6 @@ const Profile = () => {
                     profile.userId === myId ? <StatusForm setStatus={setStatus}/> : null
                 }
                 <StatusItem status={status}/>
-
 
 
             </div>

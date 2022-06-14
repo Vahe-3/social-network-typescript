@@ -1,31 +1,28 @@
-.contacts{
-
-    width: 30%;
-    background-color: #4D4D4D93;
-    border-radius: 10px;
-    margin: 10px;
+.contacts {
+  width: 30%;
+  background-color: #4D4D4D93;
+  border-radius: 10px;
+  margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  h2{
-
-    color:silver;
+  h2 {
+    color: silver;
     text-align: center;
     margin-top: 5px;
   }
+
   .contacts_item {
-
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
     input {
-      width: 80% ;
+      width: 80%;
       margin-left: 15px;
     }
 
 
-    div{
+    div {
       min-width: 150px;
       height: 50px;
       margin: 8px;
@@ -36,17 +33,17 @@
       padding: 5px;
 
 
-      a{
+      a {
         display: flex;
         justify-content: center;
 
       }
     }
+
     h3 {
       text-align: center;
       color: silver;
     }
-
 
 
     a {

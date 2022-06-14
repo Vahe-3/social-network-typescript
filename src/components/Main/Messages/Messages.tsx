@@ -7,7 +7,7 @@ const Messages = () => {
 
     return (
         <div className={styles.messages}>
-                Messages
+            Server Api can't work for messages
         </div>
     )
 };

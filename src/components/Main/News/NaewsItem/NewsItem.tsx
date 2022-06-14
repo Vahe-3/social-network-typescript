@@ -3,8 +3,7 @@ import styles from "./NewsItem.module.scss";
 import {NewsType} from "../../../../types/newsTypes";
 import emptyPicture from "./../../../../icons/noImage.jpg"
 
-interface NewsItemPropsTypes extends NewsType {
-};
+interface NewsItemPropsTypes extends NewsType {};
 
 const NewsItem: React.FC<NewsItemPropsTypes> = ({
                                                     urlToImage,
@@ -18,13 +17,13 @@ const NewsItem: React.FC<NewsItemPropsTypes> = ({
                                                 }) => {
 
     const date = publishedAt?.split("").filter(val => {
-        if(!isNaN(+val) || val === "-" || val === ":"){
+        if (!isNaN(+val) || val === "-" || val === ":") {
             return val
         }
     }).join("");
 
-    const month = date?.slice(0,10);
-    const hour = date?.slice(10,15)
+    const month = date?.slice(0, 10);
+    const hour = date?.slice(10, 15);
 
     return (
         <div className={styles.news_item}>

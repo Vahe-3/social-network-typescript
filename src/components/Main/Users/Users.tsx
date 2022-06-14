@@ -9,7 +9,7 @@ import {addFollowInProgressUsers} from "../../../store/slices/usersSlice";
 const Users = () => {
 
     const dispatch = useAppDispatch();
-    const {totalUsersCount,defaultPage,isLoading,users,followingInProgress} = useAppSelector(state => state.users);
+    const {totalUsersCount,defaultPage,isLoading,users,followingInProgress,error} = useAppSelector(state => state.users);
 
     useEffect(() =>{
         getUsers(defaultPage);
@@ -31,6 +31,10 @@ const Users = () => {
             dispatch(followUserThunk(userId))
         }
 
+    }
+
+    if(error){
+        alert(error)
     }
 
     return (

@@ -11,7 +11,6 @@
     margin-left: 40px;
   }
 
-
   h1 {
 
     color: silver;
@@ -26,7 +25,6 @@
     width: 80%;
     display: flex;
     justify-content: center;
-
 
   }
 
@@ -48,7 +46,7 @@
     -webkit-text-fill-color: white;
     -webkit-box-shadow: 0 0 0px 1000px #3f3c3a inset;
     transition: background-color 5000s ease-in-out 0s;
-}
+  }
 
   .loginInput,
   .passwordInput {
@@ -73,11 +71,10 @@
     transition: 0.3s;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background-color: #475c6b;
 
     }
-
 
   }
 
@@ -92,11 +89,10 @@
       text-align: center;
       margin: 5px;
 
-
     }
   }
 
-  .rememberMeInput{
+  .rememberMeInput {
     h3 {
       color: silver;
 
@@ -108,7 +104,6 @@
       margin-top: 5px;
     }
   }
-
 
 }
 

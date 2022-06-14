@@ -3,7 +3,6 @@ import {ProfileStateTypes} from "../../types/profileTypes";
 import {getStatusThunk, getUserProfileThunk, refreshProfileData, setProfilePhotoThunk} from "../thunks/profileThunks";
 
 
-
 const initialState: ProfileStateTypes = {
     profile: {
         aboutMe: null,
@@ -31,18 +30,15 @@ const initialState: ProfileStateTypes = {
     status: null,
     error: null,
 
-
-
-
-}
+};
 
 
 const profileSlice = createSlice({
         name: "profile",
         initialState,
         reducers: {
-            addPost(state, action:PayloadAction<string>){
-                    state.status = action.payload
+            addPost(state, action: PayloadAction<string>) {
+                state.status = action.payload
             },
 
 
@@ -58,46 +54,56 @@ const profileSlice = createSlice({
                     state.profile = action.payload;
                     state.isLoading = false;
                 })
+                .addCase(getUserProfileThunk.rejected, (state, action) => {
+                    state.error = action.payload ? action.payload : "Unknown error";
+                    state.isLoading = false;
+                })
 
                 .addCase(setProfilePhotoThunk.pending, (state) => {
+                    state.error = null;
                     state.isLoading = true;
                 })
                 .addCase(setProfilePhotoThunk.fulfilled, (state, action) => {
                     state.isLoading = false;
 
-                    if(state.profile){
+                    if (state.profile) {
                         state.profile.photos.large = action.payload
                     }
                 })
-                .addCase(setProfilePhotoThunk.rejected, (state,action) => {
-
+                .addCase(setProfilePhotoThunk.rejected, (state, action) => {
+                    state.isLoading = false;
+                    state.error = action.payload ? action.payload : "Unknown error";
                 })
 
-                .addCase(getStatusThunk.pending,(state) => {
+                .addCase(getStatusThunk.pending, (state) => {
+                    state.error = null;
                     state.isLoading = true;
+
                 })
-                .addCase(getStatusThunk.fulfilled,(state,action) => {
+                .addCase(getStatusThunk.fulfilled, (state, action) => {
 
                     state.isLoading = false;
                     state.status = action.payload;
 
                 })
-                .addCase(getStatusThunk.rejected,(state,action) => {
-
+                .addCase(getStatusThunk.rejected, (state, action) => {
+                    state.error = action.payload ? action.payload : "Unknown error";
                     state.isLoading = false;
 
                 })
 
-                .addCase(refreshProfileData.pending,(state) => {
-                    state.isLoading = true
-                })
-                .addCase(refreshProfileData.fulfilled,(state) => {
-                })
-                .addCase(refreshProfileData.rejected,(state,action) => {
-                    state.isLoading = false;
-                    state.error = action.payload ? action.payload : null;
-                })
+                .addCase(refreshProfileData.pending, (state) => {
+                    state.error = null;
+                    state.isLoading = true;
 
+                })
+                .addCase(refreshProfileData.fulfilled, (state) => {
+                    state.isLoading = false;
+                })
+                .addCase(refreshProfileData.rejected, (state, action) => {
+                    state.isLoading = false;
+                    state.error = action.payload ? action.payload : "Unknown error";
+                })
 
 
         }

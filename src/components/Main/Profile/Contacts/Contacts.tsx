@@ -23,7 +23,7 @@ const Contacts: React.FC<ContactsTypes> = ({contacts, editMode, register}) => {
                     contactsInArray.map(key => {
 
 
-                        return <div  key={key}>
+                        return <div key={key}>
                             <h3>{key}</h3>
                             {
                                 editMode ? <input type="text" {...register("contacts." + key)} /> :

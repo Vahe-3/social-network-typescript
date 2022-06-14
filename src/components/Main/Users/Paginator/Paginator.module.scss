@@ -1,46 +1,43 @@
-.numberOfPage{
-    display:flex;
-    justify-content: center;
-
-    margin:20px;
-    color: #fff;
-
-
-      h3 {
-        margin-left: 20px;
-        cursor: pointer;
-        width: 50px;
-        margin-top: 10px;
+.numberOfPage {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  color: #fff;
 
 
-          &:hover{
+  h3 {
+    margin-left: 20px;
+    cursor: pointer;
+    width: 50px;
+    margin-top: 10px;
 
-              color: gold;
-            transition: 0.3s;
 
-          }
+    &:hover {
+
+      color: gold;
+      transition: 0.3s;
+
     }
+  }
 
 
+  button {
+    width: 60px;
+    height: 40px;
+    background-color: #32434f;
+    color: silver;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
 
-     button {
-        width: 60px;
-       height: 40px;
-        background-color: #32434f;
-        color: silver;
-        border:none;
-       border-radius: 5px;
-        outline: none;
-        cursor: pointer;
-       transition: 0.3s;
-
-         &:hover{
-             background-color:  #475c6b;
-
-         }
+    &:hover {
+      background-color: #475c6b;
 
     }
 
+  }
 
 
 }

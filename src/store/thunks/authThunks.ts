@@ -32,7 +32,7 @@ export const logoutThunk = createAsyncThunk<undefined, undefined,  {rejectValue:
             return;
         };
 
-        return rejectWithValue("some error")
+        return rejectWithValue("Server error")
 
     }
 
@@ -57,10 +57,6 @@ export const logInThunk = createAsyncThunk<undefined,LoginGetType,  {rejectValue
         }
 
         return rejectWithValue(response.data.messages[0] )
-
-
-
-
 
     }
 

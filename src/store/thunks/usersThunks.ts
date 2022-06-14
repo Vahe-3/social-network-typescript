@@ -29,7 +29,7 @@ export const followUserThunk = createAsyncThunk<number, number, {rejectValue: st
             return userId;
         }
 
-        return rejectWithValue("Some error")
+        return rejectWithValue("Server error")
 
     }
 )
@@ -45,7 +45,7 @@ export const unfollowUserThunk = createAsyncThunk<number, number, {rejectValue: 
             return userId;
         }
 
-        return rejectWithValue("Some error")
+        return rejectWithValue("Server error")
 
     }
 )

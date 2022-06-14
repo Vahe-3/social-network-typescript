@@ -2,7 +2,6 @@
   background-color: #3c3f41;
   height: 60px;
   display: flex;
-
   border-bottom: #969696 solid 2px;
 
   .header_logo {
@@ -25,10 +24,7 @@
     display: flex;
     margin: 10px;
 
-
-
-      animation: ani 1s forwards;
-
+    animation: ani 1s forwards;
 
     @keyframes ani {
       0% {
@@ -82,23 +78,30 @@
     }
   }
 
-  .header_logout{
-    margin-left: 69%;
-
+  .header_logout {
+    margin-left: 63%;
     animation: ani 1s forwards;
-    button{
-      margin: 10px;
-      width: 50px;
-      height: 40px;
+
+    h4 {
+
+
+      color: silver;
+
+    }
+
+    button {
+      margin: 5px;
+      width: 100px;
+      height: 30px;
       border-radius: 5px;
-      border: 1px solid black;
-      background-color: #32434f;
+      border: none;
+      background-color: #1c282c;
       color: silver;
       cursor: pointer;
       transition: 0.3s;
-      padding: 5px  ;
+      padding: 5px;
 
-      &:hover{
+      &:hover {
         background-color: #475c6b;
       }
     }

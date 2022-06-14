@@ -18,7 +18,7 @@ const initialState: AuthStateType = {
     error: null,
 
 
-}
+};
 
 const authSlice = createSlice({
 
@@ -41,25 +41,28 @@ const authSlice = createSlice({
                 state.isLoading = false;
             })
             .addCase(authThunk.rejected, (state, action) => {
-
                 state.isLoading = false;
-
             })
 
             .addCase(logInThunk.rejected, (state, action) => {
 
-                state.error = action.payload ? action.payload : "other error";
+                state.error = action.payload ? action.payload : "Unknown error";
 
             })
-
-
 
             .addCase(logoutThunk.pending, (state, action) => {
+
                 state.isLoading = true;
+                state.error = null;
             })
             .addCase(logoutThunk.fulfilled, (state, action) => {
-                state.isLoading = false;
+
                 state.isAuth = false;
+                state.isLoading = false;
+            })
+            .addCase(logoutThunk.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload ? action.payload : "Unknown error";
             })
 
 

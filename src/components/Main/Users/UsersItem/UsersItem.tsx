@@ -25,7 +25,7 @@ const UsersItem: React.FC<UsersItemProps> = ({users,isLoading,followUser,followi
     return (
         <div className={styles.users_item}>
             {
-                users ? users.map(u =><User followingInProgress={followingInProgress}  followUser={followUser} user={u} />) : ""
+                users ? users.map(u =><User key={u.id} followingInProgress={followingInProgress}  followUser={followUser} user={u} />) : ""
             }
 
         </div>

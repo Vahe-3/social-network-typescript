@@ -15,7 +15,7 @@ export const getUserProfileThunk = createAsyncThunk<ProfileTypes, number, { reje
             return response.data;
         }
 
-        return rejectWithValue("Some Error");
+        return rejectWithValue("Server Error");
 
 
     }
@@ -31,7 +31,7 @@ export const setProfilePhotoThunk = createAsyncThunk<string, any, { rejectValue:
             return response.data.data.photos.large;
         }
 
-        return rejectWithValue("Some Error")
+        return rejectWithValue("Server Error")
 
     }
 );
@@ -48,7 +48,7 @@ export const getStatusThunk = createAsyncThunk<string, number, { rejectValue: st
             return response.data;
         }
 
-        return rejectWithValue("Some Error")
+        return rejectWithValue("Server Error")
 
     }
 );
@@ -68,7 +68,7 @@ export const refreshStatusThunk = createAsyncThunk<undefined, string, { rejectVa
             return;
         }
 
-        return rejectWithValue("Some Error")
+        return rejectWithValue("Server Error")
 
     }
 );
